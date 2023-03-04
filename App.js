@@ -1,5 +1,4 @@
 import React, {useState} from "react"
-import { StatusBar } from 'expo-status-bar';
 import { Button, StyleSheet, Text, TextInput, View } from 'react-native';
 
 export default function App() {
@@ -8,10 +7,8 @@ export default function App() {
   const getDatosALumno = (nombre,carrera, especialidad) => {
     return nombre +" "+ carrera + " " + especialidad;
   }
-
   //const [activo, setActivo] = useState(true)
   //const [materia, setMateria] = useState("Inscribe una materia")
-
   /**const Materias=(props) => {
     return(
       <view>
@@ -27,6 +24,14 @@ export default function App() {
 
   return (
     <View style={styles.container}>
+
+      <Text style={{
+        fontSize:25,
+        fontWeight:"bold",
+        color:"blue"
+      }}>
+        Registro de materias</Text>
+
       <TextInput
       style={styles.cajaTexto}
       defaultValue={materia1}    
@@ -47,25 +52,50 @@ export default function App() {
       onPress={()=>{
         setMostrar(!activo)
       }}
-      
+      style={styles.button}
       title = {"Imprimir"}
       />
       <View >
-      {activo ? "Sin materias": <><Text>Materias Inscritas</Text><Text>{materia1}</Text><Text>{materia2}</Text><Text>{materia3}</Text></>}
-
+      {activo ? <Text>Sin materias</Text>:<><Text
+      style={styles.textoNorm}>1- {materia1}</Text><Text
+      style={styles.textoNorm}>2- {materia2}</Text><Text
+      style={styles.textoNorm}>3- {materia3}</Text></>}
       </View>
 
     </View>
   );
 }
 
+
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
-    justifyContent: 'center',  
+    justifyContent: 'center',
+    margin:10  
   },
+  cajaTexto:{
+    height:40,
+    borderColor:"pink",
+    borderWidth:2,
+    minWidth:200,
+    margin:10
+  },
+  titleText: {
+    fontSize: 20,
+    fontWeight: 'bold',
+  },
+  button: {
+    fontSize: 20,
+    fontWeight: 'bold',
+  },
+  textoNorm:{
+    fontSize: 20,
+    color:"green",
+    margin:10  
+  }
 });
 
 /**
